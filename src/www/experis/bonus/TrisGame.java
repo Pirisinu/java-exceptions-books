@@ -6,6 +6,9 @@ public class TrisGame {
         final int heigth = 3;
         char[][] board = new char[width][heigth];
 
+        printBoard(board);
+    }
+    public static  void printBoard(char[][] board){
         System.out.println("  1 2 3");
         for (int i = 0; i < 3; i++) {
             System.out.print((i + 1) + " ");
