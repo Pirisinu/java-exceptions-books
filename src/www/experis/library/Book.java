@@ -40,9 +40,12 @@ public class Book {
 
 
     // Getter e Setter
-//    public String getFullInfo(){
-//
-//    }
+    public String getFullInfo(){
+        return  "Titolo: " + this.title + " || "
+                + "Autore: " + this.author + " || "
+                + "Editore: " + this.editor + " || "
+                + "Numero pagine: " + this.numPage +"; ||";
+    }
     public String getTitle() {
         return title;
     }

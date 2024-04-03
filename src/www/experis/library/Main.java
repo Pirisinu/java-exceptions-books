@@ -1,5 +1,6 @@
 package www.experis.library;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -49,20 +50,30 @@ public class Main {
             }
         }
 
-        // Stampo la lista dei libri solo se ci sono libri inseriti
-        if (numBooks > 0) {
-            System.out.println("Lista dei libri inseriti:");
+
+        // Scrivi i dati dei libri su un file
+        try (FileWriter writer = new FileWriter("resources/library.txt")) {
             for (Book book : library) {
                 if (book != null) {
-                    System.out.println("Titolo: " + book.getTitle());
-                    System.out.println("Autore: " + book.getAuthor());
-                    System.out.println("Editore: " + book.getEditor());
-                    System.out.println("Numero pagine: " + book.getNumPage());
-                    System.out.println();
+                    writer.write(book.getFullInfo() + "\n");
                 }
             }
-        } else {
-            System.out.println("Nessun libro inserito, grazie e arrivederci.");
+            System.out.println("Dati dei libri scritti su file con successo.");
+        } catch (IOException e) {
+            System.out.println("Si è verificato un errore durante la scrittura su file: " + e.getMessage());
+        }
+
+        // Leggo i dati dal file
+        try (Scanner scanner = new Scanner(new File("resources/library.txt"))) {
+            System.out.println("Dati dei libri letti dal file: ");
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Il file non è stato trovato: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Si è verificato un errore durante la lettura dal file: " + e.getMessage());
         }
     }
 }
