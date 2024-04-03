@@ -26,7 +26,10 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) throws NotEmptyStringPls {
+        if (title.isEmpty()) {
+            throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
+        }
         this.title = title;
     }
 
@@ -34,7 +37,10 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author) throws NotEmptyStringPls {
+        if (author.isEmpty()) {
+            throw new NotEmptyStringPls("Il nome dell'autore non può essere vuoto.");
+        }
         this.author = author;
     }
 
@@ -42,7 +48,10 @@ public class Book {
         return editor;
     }
 
-    public void setEditor(String editor) {
+    public void setEditor(String editor) throws NotEmptyStringPls {
+        if (editor.isEmpty()) {
+            throw new NotEmptyStringPls("Il nome dell'editore non può essere vuoto.");
+        }
         this.editor = editor;
     }
 
