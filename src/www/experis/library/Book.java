@@ -13,6 +13,14 @@ public class Book {
         this.numPage = numPage;
     }
 
+    // Exception
+
+    public class NotEmptyStringPls extends Exception{
+        public NotEmptyStringPls(String message){
+            super(message);
+        }
+    }
+
     // Getter e Setter
     public String getTitle() {
         return title;
