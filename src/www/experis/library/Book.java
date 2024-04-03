@@ -7,14 +7,14 @@ public class Book {
 
     // Constructor
     public Book(String title, String author, String editor, int numPage) throws NotEmptyStringPls, NoZeroPage {
-        if (title.trim().isEmpty()) {
-            throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
+        if (title == null || title.trim().isEmpty()) {
+            throw new NotEmptyStringPls("Il titolo non può essere vuoto o nullo.");
         }
-        if (author.trim().isEmpty()) {
-            throw new NotEmptyStringPls("L'autore non può essere vuoto.");
+        if (author == null || author.trim().isEmpty()) {
+            throw new NotEmptyStringPls("L'autore non può essere vuoto o nullo.");
         }
-        if (editor.trim().isEmpty()) {
-            throw new NotEmptyStringPls("L'editore non può essere vuoto.");
+        if (editor == null || editor.trim().isEmpty()) {
+            throw new NotEmptyStringPls("L'editore non può essere vuoto o nullo.");
         }
         if (numPage <= 0) {
             throw new NoZeroPage("Il numero di pagine non può essere zero o negativo.");
