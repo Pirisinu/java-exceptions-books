@@ -6,7 +6,7 @@ public class Book {
     private int numPage;
 
     // Constructor
-    public Book(String title, String author, String editor, int numPage) throws NotEmptyStringPls {
+    public Book(String title, String author, String editor, int numPage) throws NotEmptyStringPls, NoZeroPage {
         if (title.isEmpty()) {
             throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
         }
@@ -16,7 +16,9 @@ public class Book {
         if (editor.isEmpty()) {
             throw new NotEmptyStringPls("L'editore non può essere vuoto.");
         }
-
+        if (numPage <= 0) {
+            throw new NoZeroPage("Il numero di pagine non può essere zero o negativo.");
+        }
         this.title = title;
         this.author = author;
         this.editor = editor;
@@ -27,6 +29,11 @@ public class Book {
 
     public class NotEmptyStringPls extends Exception{
         public NotEmptyStringPls(String message){
+            super(message);
+        }
+    }
+    public class NoZeroPage extends Exception {
+        public NoZeroPage(String message) {
             super(message);
         }
     }
@@ -70,7 +77,10 @@ public class Book {
         return numPage;
     }
 
-    public void setNumPage(int numPage) {
+    public void setNumPage(int numPage) throws NoZeroPage {
+        if (numPage <= 0) {
+            throw new NoZeroPage("Il numero delle pagine deve essere superiore allo 0.");
+        }
         this.numPage = numPage;
     }
 }
