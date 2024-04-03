@@ -1,6 +1,15 @@
 package www.experis.bonus;
 
 public class TrisGame {
+    // Genero la tabella
+    // Genero i giocatori
+
+    // ***Do***
+    // Inizia giocatore A
+    // Sceglie casella X-Y
+    // La casella è gia occupata? || La selezione fa vincere la partita?
+    // ***WHILE(la casella è l'ultima la partita finisce in pareggio)***
+
     public static void main(String[] args) {
         final int width = 3;
         final int heigth = 3;
