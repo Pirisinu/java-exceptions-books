@@ -6,7 +6,17 @@ public class Book {
     private int numPage;
 
     // Constructor
-    public Book(String title, String author, String editor, int numPage) {
+    public Book(String title, String author, String editor, int numPage) throws NotEmptyStringPls {
+        if (title.isEmpty()) {
+            throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
+        }
+        if (author.isEmpty()) {
+            throw new NotEmptyStringPls("L'autore non può essere vuoto.");
+        }
+        if (editor.isEmpty()) {
+            throw new NotEmptyStringPls("L'editore non può essere vuoto.");
+        }
+
         this.title = title;
         this.author = author;
         this.editor = editor;
@@ -20,6 +30,7 @@ public class Book {
             super(message);
         }
     }
+
 
     // Getter e Setter
     public String getTitle() {
