@@ -7,13 +7,13 @@ public class Book {
 
     // Constructor
     public Book(String title, String author, String editor, int numPage) throws NotEmptyStringPls, NoZeroPage {
-        if (title.isEmpty()) {
+        if (title.trim().isEmpty()) {
             throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
         }
-        if (author.isEmpty()) {
+        if (author.trim().isEmpty()) {
             throw new NotEmptyStringPls("L'autore non può essere vuoto.");
         }
-        if (editor.isEmpty()) {
+        if (editor.trim().isEmpty()) {
             throw new NotEmptyStringPls("L'editore non può essere vuoto.");
         }
         if (numPage <= 0) {
@@ -40,12 +40,15 @@ public class Book {
 
 
     // Getter e Setter
+//    public String getFullInfo(){
+//
+//    }
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) throws NotEmptyStringPls {
-        if (title.isEmpty()) {
+        if (title.trim().isEmpty()) {
             throw new NotEmptyStringPls("Il titolo non può essere vuoto.");
         }
         this.title = title;
@@ -56,7 +59,7 @@ public class Book {
     }
 
     public void setAuthor(String author) throws NotEmptyStringPls {
-        if (author.isEmpty()) {
+        if (author.trim().isEmpty()) {
             throw new NotEmptyStringPls("Il nome dell'autore non può essere vuoto.");
         }
         this.author = author;
@@ -67,7 +70,7 @@ public class Book {
     }
 
     public void setEditor(String editor) throws NotEmptyStringPls {
-        if (editor.isEmpty()) {
+        if (editor.trim().isEmpty()) {
             throw new NotEmptyStringPls("Il nome dell'editore non può essere vuoto.");
         }
         this.editor = editor;
